@@ -70,3 +70,11 @@ word_count
 
 head(sort(word_count,decreasing = TRUE),10)
 
+wordcloud(names(word_count), #문자들
+          freq=word_count, #문자의 개수
+          scale=c(12,0.8),# 스케일 0.8애서 12
+          min.freq=3, #최소 문자 개수 값
+          random.order=F, #이름이 출력되는공간이 랜덤 
+          rot.per=.1, #회전 각도값
+          colors=pal2)
+

@@ -57,12 +57,12 @@ Seoul_Crime_pct$검거확률 <- paste("검거",round(Seoul_Crime_pct$범죄.검�
 Seoul_Crime_pct$lon <- Seoul_address$lon
 Seoul_Crime_pct$lat <- Seoul_address$lat
 Seoul_Crime_final <- Seoul_Crime_pct %>% select("관서명","발생확률","검거확률",lon,lat)
-ggmap(seoul_map)+geom_point(data= Seoul_Crime_final,
+ggmap(seoul_map)+geom_point(data= Seoul_address,
                            aes(x=lon,y=lat),
                            colour="red",
                            size=3)+
   geom_text(data=Seoul_Crime_final,aes(label=관서명,vjust=+1))+
   geom_text(data=Seoul_Crime_final,aes(label=발생확률,vjust=+2))+
-  geom_text(data=Seoul_Crime_final_pct,aes(label=검거확률,vjust=+3))
+  geom_text(data=Seoul_Crime_final,aes(label=검거확률,vjust=+3))
 
 str(Seoul_Crime)
